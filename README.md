@@ -10,7 +10,7 @@ Utilizes mossadal/math-parser for expression parsing
 
 Features
 
-✅ Perform mathematical operations
-✅ Interactive UI for selecting operations and inputting values
-✅ Backend powered by PHP with support for mathematical libraries
-✅ Modular and extensible architecture for adding new operations
+```✅ Perform mathematical operations```
+```✅ Interactive UI for selecting operations and inputting values```
+```✅ Backend powered by PHP with support for mathematical libraries```
+```✅ Modular and extensible architecture for adding new operations```
