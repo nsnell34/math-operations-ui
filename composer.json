@@ -1,0 +1,18 @@
+{
+    "name": "nicksnell/new-proj",
+    "autoload": {
+        "psr-4": {
+            "Nicksnell\\NewProj\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nsnell34",
+            "email": "126209391+nsnell34@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "markrogoyski/math-php": "^2.11",
+        "mossadal/math-parser": "^1.3"
+    }
+}

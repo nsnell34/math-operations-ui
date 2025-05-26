@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'nicksnell/new-proj',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => NULL,
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'markrogoyski/math-php' => array(
+            'pretty_version' => 'v2.11.0',
+            'version' => '2.11.0.0',
+            'reference' => 'ae499f31513821a62f3d2fb8c6f0d3a333e8b591',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../markrogoyski/math-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'mossadal/math-parser' => array(
+            'pretty_version' => 'v1.3.16',
+            'version' => '1.3.16.0',
+            'reference' => '981b03ca603fd281049e092d75245ac029e13dec',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mossadal/math-parser',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'nicksnell/new-proj' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => NULL,
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

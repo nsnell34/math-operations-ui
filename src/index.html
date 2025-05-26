@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="body">
+
+    <h1>Examples</h1>
+    <input class="input" type="text" placeholder="Input..." id="searchInput">
+
+    <div id="result" style="margin-top: 20px; font-family: monospace;"></div>
+    
+    <div class="dropdown">
+        <button class="dropdown-toggle" onclick="toggleFunctions('arrayFunctions', this)">Array Input <span class="arrow">&gt;</span> </button>
+        <div class="functions-container hidden" id="arrayFunctions">
+          <div class="function" onclick="handleClick('Mean', true)">Mean</div>
+          <div class="function" onclick="handleClick('Median', true)">Median</div>
+          <div class="function" onclick="handleClick('Mode', true)">Mode</div>
+          <div class="function" onclick="handleClick('Summation', true)">Summation</div>
+          <div class="function" onclick="handleClick('StandardDeviation', true)">Standard Deviation</div>
+          <div class="function" onclick="handleClick('Variance', true)">Variance</div>
+          <div class="function" onclick="handleClick('Quartiles', true)">Quartiles</div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropdown-toggle" onclick="toggleFunctions('singleInteger', this)">Single Integer <span class="arrow">&gt;</span> </button>
+        <div class="functions-container hidden" id="singleInteger">
+            <div class="function" onClick="handleClick('PrimeCheck', true)">Prime Check</div>
+            <div class="function" onClick="handleClick('PrimeFactorization', true)">Prime Factorization</div>
+            <div class="function" onClick="handleClick('Factorial', true)">Factorial</div>
+            <div class="function" onClick="handleClick('Fibonacci', true)">Fibonacci</div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropdown-toggle" onclick="toggleFunctions('twoIntegers', this)">Two Integers <span class="arrow">&gt;</span> </button>
+        <div class="functions-container hidden" id="twoIntegers">
+            <div class="function" onClick="handleClick('GreatestCommonDivisor', true)">Greatest Common Divisor</div>
+            <div class="function" onClick="handleClick('LeastCommonMultiple', true)">Least Common Multiple</div>
+        </div>
+    </div>    
+
+    <div class="dropdown">
+        <button class="dropdown-toggle" onclick="toggleFunctions('equation', this)">Equation <span class="arrow">&gt;</span> </button>
+        <div class="functions-container hidden" id="equation">
+            <div class="function" onClick="handleClick('variableTest', false)">Test</div>
+        </div>
+    </div>
+
+    <script>
+        async function handleClick(operation, isNumeric) {
+            const inputValue = document.getElementById('searchInput').value;
+            
+            try {
+                const response = await fetch('api.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        input: inputValue,
+                        operation: operation,
+                        isNumeric: isNumeric
+                    })
+                });
+        
+                const data = await response.json();
+        
+                if (!response.ok) {
+                    throw new Error(data.error || 'An unknown error occurred');
+                }
+        
+                document.getElementById('result').innerHTML = `<pre>${JSON.stringify(data.result, null, 2)}</pre>`;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = `<pre style="color: red;">Error: ${error.message}</pre>`;
+            }
+            
+        }
+
+        function toggleFunctions(containerId, button) {
+            const container = document.getElementById(containerId);
+            const arrow = button.querySelector('.arrow');
+
+            if (container.classList.contains('hidden')) {
+                container.classList.remove('hidden');
+                arrow.innerHTML = '&#709;';
+            } else {
+                container.classList.add('hidden');
+                arrow.innerHTML = '&gt;';
+            }
+        }
+
+        </script>
+
+
+<!--
+<form action="api.php" method="POST">
+    <label for="input">Input:</label>
+    <input type="text" name="input" id="input" placeholder="Your input here">
+    
+    <label for="operation">Operation:</label>
+    <input type="text" name="operation" id="operation" placeholder="e.g. PrimeFactorization">
+    
+    <label for="isNumeric">Is Numeric:</label>
+    <input type="text" name="isNumeric" id="isNumeric" placeholder="true or false">
+
+    <button type="submit">Submit</button>
+-->
+</form>
+
+</body>
+</html> 
