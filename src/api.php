@@ -19,6 +19,8 @@ include_once 'Operations/PrimeHandler.php';
 include_once 'Operations/PrimeFactorizationHandler.php';
 include_once 'Operations/FactorialHandler.php';
 include_once 'Operations/FibonacciHandler.php';
+include_once 'Operations/LeastCommonMultipleHandler.php';
+include_once 'Operations/GreatestCommonFactorHandler.php';
 
 
 use MathParser\StdMathParser;

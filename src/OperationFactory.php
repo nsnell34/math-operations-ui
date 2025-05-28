@@ -1,6 +1,8 @@
 <?php
 use Operations\FactorialHandler;
 use Operations\FibonacciHandler;
+use Operations\GreatestCommonFactorHandler;
+use Operations\LeastCommonMultipleHandler;
 use Operations\MeanHandler;
 use Operations\MedianHandler;
 use Operations\PrimeFactorizationHandler;
@@ -26,6 +28,8 @@ class OperationFactory {
             'primefactorization' => new PrimeFactorizationHandler(),
             'factorial' => new FactorialHandler(),
             'fibonacci' => new FibonacciHandler(),
+            'greatestcommonfactor' => new GreatestCommonFactorHandler(),
+            'leastcommonmultiple' => new LeastCommonMultipleHandler(),
             default => null
         };
     }
