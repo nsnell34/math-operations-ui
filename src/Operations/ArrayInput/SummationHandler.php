@@ -1,12 +1,11 @@
 <?php
-
-namespace Operations;
-require_once __DIR__ . '/OperationHandler.php';
+namespace Operations\ArrayInput;
+require_once __DIR__ . '/../OperationHandler.php';
 
 use InvalidArgumentException;
 use TypedValue;
 
-class MeanHandler implements OperationHandler {
+class SummationHandler implements \Operations\OperationHandler {
     public function sanitize(string $input): array {
         $items = explode(',', $input);
         $numbers = [];
@@ -21,14 +20,13 @@ class MeanHandler implements OperationHandler {
 
         return $numbers;
     }
-
     public function execute(mixed $sanitizedInput): mixed {
         if (!is_array($sanitizedInput) || empty($sanitizedInput)) {
             throw new InvalidArgumentException("Invalid input.");
         }
 
-        $mean = array_sum($sanitizedInput) / count($sanitizedInput);
-        $resultSet['mean'] = new TypedValue($mean, 'float');
+        $sum = array_sum($sanitizedInput);
+        $resultSet['summation'] = new TypedValue($sum,'float');
         return $resultSet;
     }
 }

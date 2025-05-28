@@ -1,12 +1,12 @@
 <?php
 
-namespace Operations;
-require_once __DIR__ . '/OperationHandler.php';
+namespace Operations\ArrayInput;
+require_once __DIR__ . '/../OperationHandler.php';
 
 use InvalidArgumentException;
 use TypedValue;
 
-class ModeHandler implements OperationHandler {
+class ModeHandler implements \Operations\OperationHandler {
     public function sanitize(string $input): array {
         $items = explode(',', $input);
         $numbers = [];

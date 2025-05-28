@@ -1,18 +1,21 @@
 <?php
-use Operations\FactorialHandler;
-use Operations\FibonacciHandler;
-use Operations\GreatestCommonFactorHandler;
-use Operations\LeastCommonMultipleHandler;
-use Operations\MeanHandler;
-use Operations\MedianHandler;
-use Operations\PrimeFactorizationHandler;
-use Operations\PrimeHandler;
-use Operations\QuartileHandler;
-use Operations\StandardDeviationHandler;
-use Operations\SummationHandler;
+use Operations\ArrayInput\MeanHandler;
+use Operations\ArrayInput\MedianHandler;
+use Operations\ArrayInput\ModeHandler;
+use Operations\ArrayInput\StandardDeviationHandler;
+use Operations\ArrayInput\SummationHandler;
+use Operations\ArrayInput\VarianceHandler;
+use Operations\ArrayInput\QuartileHandler;
+
+use Operations\SingleIntegerInput\PrimeHandler;
+use Operations\SingleIntegerInput\PrimeFactorizationHandler;
+use Operations\SingleIntegerInput\FactorialHandler;
+use Operations\SingleIntegerInput\FibonacciHandler;
+
+use Operations\DoubleIntegerInput\GreatestCommonFactorHandler;
+use Operations\DoubleIntegerInput\LeastCommonMultipleHandler;
+
 use Operations\OperationHandler;
-use Operations\ModeHandler;
-use Operations\VarianceHandler;
 
 class OperationFactory {
     public static function getHandler(string $operation): ?OperationHandler {

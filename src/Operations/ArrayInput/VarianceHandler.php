@@ -1,12 +1,12 @@
 <?php
 
-namespace Operations;
-require_once __DIR__ . '/OperationHandler.php';
+namespace Operations\ArrayInput;
+require_once __DIR__ . '/../OperationHandler.php';
 
 use InvalidArgumentException;
 use TypedValue;
 
-class StandardDeviationHandler implements OperationHandler {
+class VarianceHandler implements \Operations\OperationHandler {
     public function sanitize(string $input): array {
         $items = explode(',', $input);
         $numbers = [];
@@ -35,9 +35,9 @@ class StandardDeviationHandler implements OperationHandler {
 
         }
 
-        $deviation = sqrt((array_sum($squaredDiffs) / count($squaredDiffs)));
+        $variance = array_sum($squaredDiffs) / count($squaredDiffs);
 
-        $resultSet['standardDeviation'] =  new TypedValue($deviation, 'float');
+        $resultSet['variance'] = new TypedValue($variance, 'float');
 
         return $resultSet;
     }

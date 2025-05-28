@@ -7,20 +7,23 @@ require '../vendor/autoload.php';
 include_once 'Functions.php';
 include_once 'Parser.php';
 include_once 'Operations/TypedValue.php';
-include_once 'Operations/MeanHandler.php';
+include_once 'Operations/ArrayInput/MeanHandler.php';
 include_once 'Operations/OperationHandler.php';
-include_once 'Operations/SummationHandler.php';
-include_once 'Operations/MedianHandler.php';
-include_once 'Operations/ModeHandler.php';
-include_once 'Operations/StandardDeviationHandler.php';
-include_once 'Operations/VarianceHandler.php';
-include_once 'Operations/QuartileHandler.php';
-include_once 'Operations/PrimeHandler.php';
-include_once 'Operations/PrimeFactorizationHandler.php';
-include_once 'Operations/FactorialHandler.php';
-include_once 'Operations/FibonacciHandler.php';
-include_once 'Operations/LeastCommonMultipleHandler.php';
-include_once 'Operations/GreatestCommonFactorHandler.php';
+
+include_once 'Operations/ArrayInput/SummationHandler.php';
+include_once 'Operations/ArrayInput/MedianHandler.php';
+include_once 'Operations/ArrayInput/ModeHandler.php';
+include_once 'Operations/ArrayInput/StandardDeviationHandler.php';
+include_once 'Operations/ArrayInput/VarianceHandler.php';
+include_once 'Operations/ArrayInput/QuartileHandler.php';
+
+include_once 'Operations/SingleIntegerInput/PrimeHandler.php';
+include_once 'Operations/SingleIntegerInput/PrimeFactorizationHandler.php';
+include_once 'Operations/SingleIntegerInput/FactorialHandler.php';
+include_once 'Operations/SingleIntegerInput/FibonacciHandler.php';
+
+include_once 'Operations/DoubleIntegerInput/LeastCommonMultipleHandler.php';
+include_once 'Operations/DoubleIntegerInput/GreatestCommonFactorHandler.php';
 
 
 use MathParser\StdMathParser;

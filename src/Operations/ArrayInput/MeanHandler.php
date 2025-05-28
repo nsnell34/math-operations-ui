@@ -1,12 +1,12 @@
 <?php
 
-namespace Operations;
-require_once __DIR__ . '/OperationHandler.php';
+namespace Operations\ArrayInput;
+require_once __DIR__ . '/../OperationHandler.php';
 
 use InvalidArgumentException;
 use TypedValue;
 
-class VarianceHandler implements OperationHandler {
+class MeanHandler implements \Operations\OperationHandler {
     public function sanitize(string $input): array {
         $items = explode(',', $input);
         $numbers = [];
@@ -27,18 +27,8 @@ class VarianceHandler implements OperationHandler {
             throw new InvalidArgumentException("Invalid input.");
         }
 
-
         $mean = array_sum($sanitizedInput) / count($sanitizedInput);
-        $squaredDiffs = [];
-        foreach ($sanitizedInput as $key => $value){
-            $squaredDiffs[] = ($value - $mean) ** 2;
-
-        }
-
-        $variance = array_sum($squaredDiffs) / count($squaredDiffs);
-
-        $resultSet['variance'] = new TypedValue($variance, 'float');
-
+        $resultSet['mean'] = new TypedValue($mean, 'float');
         return $resultSet;
     }
 }

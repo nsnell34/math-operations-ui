@@ -1,13 +1,13 @@
 <?php
 
-namespace Operations;
-require_once __DIR__ . '/OperationHandler.php';
+namespace Operations\DoubleIntegerInput;
+require_once __DIR__ . '/../OperationHandler.php';
 include_once 'LeastCommonMultipleHandler.php';
 
 use TypedValue;
 use InvalidArgumentException;
 
-class GreatestCommonFactorHandler implements OperationHandler {
+class GreatestCommonFactorHandler implements \Operations\OperationHandler {
     public function sanitize(mixed $input): array {
         $stringInput = (string)$input;
     

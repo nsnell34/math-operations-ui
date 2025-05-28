@@ -1,12 +1,12 @@
 <?php
 
-namespace Operations;
-require_once __DIR__ . '/OperationHandler.php';
+namespace Operations\SingleIntegerInput;
+require_once __DIR__ . '/../OperationHandler.php';
 
 use TypedValue;
 use InvalidArgumentException;
 
-class FibonacciHandler implements OperationHandler {
+class FibonacciHandler implements \Operations\OperationHandler {
     public function sanitize(mixed $input): int {
         $stringInput = (string)$input;
     
