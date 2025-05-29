@@ -1,4 +1,7 @@
 <?php
+use Operations\ArrayInput\GeometricMeanHandler;
+use Operations\ArrayInput\HarmonicMeanHandler;
+use Operations\ArrayInput\InterquartileRangeHandler;
 use Operations\ArrayInput\MeanHandler;
 use Operations\ArrayInput\MedianHandler;
 use Operations\ArrayInput\ModeHandler;
@@ -33,6 +36,9 @@ class OperationFactory {
             'fibonacci' => new FibonacciHandler(),
             'greatestcommonfactor' => new GreatestCommonFactorHandler(),
             'leastcommonmultiple' => new LeastCommonMultipleHandler(),
+            'geometricmean' => new GeometricMeanHandler(),
+            'harmonicmean' => new HarmonicMeanHandler(),
+            'interquartilerange' => new InterquartileRangeHandler(),
             default => null
         };
     }

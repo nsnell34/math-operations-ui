@@ -7,7 +7,6 @@ require '../vendor/autoload.php';
 include_once 'Functions.php';
 include_once 'Parser.php';
 include_once 'Operations/TypedValue.php';
-include_once 'Operations/ArrayInput/MeanHandler.php';
 include_once 'Operations/OperationHandler.php';
 
 include_once 'Operations/ArrayInput/SummationHandler.php';
@@ -16,6 +15,10 @@ include_once 'Operations/ArrayInput/ModeHandler.php';
 include_once 'Operations/ArrayInput/StandardDeviationHandler.php';
 include_once 'Operations/ArrayInput/VarianceHandler.php';
 include_once 'Operations/ArrayInput/QuartileHandler.php';
+include_once 'Operations/ArrayInput/MeanHandler.php';
+include_once 'Operations/ArrayInput/GeometricMeanHandler.php';
+include_once 'Operations/ArrayInput/HarmonicMeanHandler.php';
+include_once 'Operations/ArrayInput/InterquartileRangeHandler.php';
 
 include_once 'Operations/SingleIntegerInput/PrimeHandler.php';
 include_once 'Operations/SingleIntegerInput/PrimeFactorizationHandler.php';

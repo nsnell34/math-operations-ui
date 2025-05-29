@@ -24,23 +24,28 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 .function {
-  display: flex;
+  flex: 0 0 calc(12.5% - 16px);
   margin: 8px;
   background-color: white;
-  width: 70px;
-  height: 40px;
+  height: 55px;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
   border: 1px solid #ccc;
   transition: background-color 0.2s;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .function:hover {
@@ -116,6 +121,12 @@ body {
 
 .dropdown-toggle:hover {
   background-color: #e0e0e0;
+}
+
+.dropdown {
+  width: 100%; 
+  max-width: 1000px;
+  box-sizing: border-box;
 }
 
 .arrow {
