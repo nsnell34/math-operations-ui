@@ -31,6 +31,7 @@ include_once 'Operations/SingleIntegerInput/TriangularNumbersHandler.php';
 include_once 'Operations/SingleIntegerInput/CollatzSequenceHandler.php';
 include_once 'Operations/SingleIntegerInput/DigitalRootHandler.php';
 include_once 'Operations/SingleIntegerInput/AbundanceHandler.php';
+include_once 'Operations/SingleIntegerInput/EulersTotientHandler.php';
 
 include_once 'Operations/DoubleIntegerInput/LeastCommonMultipleHandler.php';
 include_once 'Operations/DoubleIntegerInput/GreatestCommonFactorHandler.php';

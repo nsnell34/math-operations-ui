@@ -16,6 +16,7 @@ use Operations\ArrayInput\QuartileHandler;
 use Operations\SingleIntegerInput\AbundanceHandler;
 use Operations\SingleIntegerInput\CollatzSequenceHandler;
 use Operations\SingleIntegerInput\DigitalRootHandler;
+use Operations\SingleIntegerInput\EulersTotientHandler;
 use Operations\SingleIntegerInput\PrimeHandler;
 use Operations\SingleIntegerInput\PrimeFactorizationHandler;
 use Operations\SingleIntegerInput\FactorialHandler;
@@ -53,6 +54,7 @@ class OperationFactory {
             'collatzsequence' => new CollatzSequenceHandler(),
             'digitalroot' => new DigitalRootHandler(),
             'abundance' => new AbundanceHandler(),
+            'euelertotient' => new EulersTotientHandler(),
             default => null
         };
     }
