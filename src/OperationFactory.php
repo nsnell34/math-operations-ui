@@ -13,6 +13,7 @@ use Operations\ArrayInput\SummationHandler;
 use Operations\ArrayInput\VarianceHandler;
 use Operations\ArrayInput\QuartileHandler;
 
+use Operations\SingleIntegerInput\AbundanceHandler;
 use Operations\SingleIntegerInput\CollatzSequenceHandler;
 use Operations\SingleIntegerInput\DigitalRootHandler;
 use Operations\SingleIntegerInput\PrimeHandler;
@@ -51,6 +52,7 @@ class OperationFactory {
             'triangular' => new TriangularNumbersHandler(),
             'collatzsequence' => new CollatzSequenceHandler(),
             'digitalroot' => new DigitalRootHandler(),
+            'abundance' => new AbundanceHandler(),
             default => null
         };
     }
