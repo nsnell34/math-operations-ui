@@ -13,6 +13,7 @@ use Operations\ArrayInput\SummationHandler;
 use Operations\ArrayInput\VarianceHandler;
 use Operations\ArrayInput\QuartileHandler;
 
+use Operations\SingleIntegerInput\CollatzSequenceHandler;
 use Operations\SingleIntegerInput\PrimeHandler;
 use Operations\SingleIntegerInput\PrimeFactorizationHandler;
 use Operations\SingleIntegerInput\FactorialHandler;
@@ -22,6 +23,7 @@ use Operations\DoubleIntegerInput\GreatestCommonFactorHandler;
 use Operations\DoubleIntegerInput\LeastCommonMultipleHandler;
 
 use Operations\OperationHandler;
+use Operations\SingleIntegerInput\TriangularNumbersHandler;
 
 class OperationFactory {
     public static function getHandler(string $operation): ?OperationHandler {
@@ -45,6 +47,8 @@ class OperationFactory {
             'interquartilerange' => new InterquartileRangeHandler(),
             'skewness' => new SkewnessnHandler(),
             'kurtosis' => new KurtosisnHandler(),
+            'triangular' => new TriangularNumbersHandler(),
+            'collatzsequence' => new CollatzSequenceHandler(),
             default => null
         };
     }

@@ -27,6 +27,8 @@ include_once 'Operations/SingleIntegerInput/PrimeHandler.php';
 include_once 'Operations/SingleIntegerInput/PrimeFactorizationHandler.php';
 include_once 'Operations/SingleIntegerInput/FactorialHandler.php';
 include_once 'Operations/SingleIntegerInput/FibonacciHandler.php';
+include_once 'Operations/SingleIntegerInput/TriangularNumbersHandler.php';
+include_once 'Operations/SingleIntegerInput/CollatzSequenceHandler.php';
 
 include_once 'Operations/DoubleIntegerInput/LeastCommonMultipleHandler.php';
 include_once 'Operations/DoubleIntegerInput/GreatestCommonFactorHandler.php';
