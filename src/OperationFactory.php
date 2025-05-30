@@ -14,6 +14,7 @@ use Operations\ArrayInput\VarianceHandler;
 use Operations\ArrayInput\QuartileHandler;
 
 use Operations\SingleIntegerInput\CollatzSequenceHandler;
+use Operations\SingleIntegerInput\DigitalRootHandler;
 use Operations\SingleIntegerInput\PrimeHandler;
 use Operations\SingleIntegerInput\PrimeFactorizationHandler;
 use Operations\SingleIntegerInput\FactorialHandler;
@@ -49,6 +50,7 @@ class OperationFactory {
             'kurtosis' => new KurtosisnHandler(),
             'triangular' => new TriangularNumbersHandler(),
             'collatzsequence' => new CollatzSequenceHandler(),
+            'digitalroot' => new DigitalRootHandler(),
             default => null
         };
     }
