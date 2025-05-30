@@ -19,6 +19,9 @@ include_once 'Operations/ArrayInput/MeanHandler.php';
 include_once 'Operations/ArrayInput/GeometricMeanHandler.php';
 include_once 'Operations/ArrayInput/HarmonicMeanHandler.php';
 include_once 'Operations/ArrayInput/InterquartileRangeHandler.php';
+include_once 'Operations/ArrayInput/SkewnessHandler.php';
+include_once 'Operations/ArrayInput/KurtosisHandler.php';
+include_once 'Operations/ArrayInput/RangeHandler.php';
 
 include_once 'Operations/SingleIntegerInput/PrimeHandler.php';
 include_once 'Operations/SingleIntegerInput/PrimeFactorizationHandler.php';

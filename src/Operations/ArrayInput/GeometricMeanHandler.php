@@ -33,7 +33,9 @@ class GeometricMeanHandler implements \Operations\OperationHandler {
         }
         $geometricMean = pow($total, 1 / count($sanitizedInput));
 
-        $resultSet['geometricMean'] = new TypedValue(number_format($geometricMean, 2, '.', ''), 'float');
+        $formatted = rtrim(rtrim(number_format($geometricMean, 4, '.', ''), '0'), '.');
+
+        $resultSet['geometricMean'] = new TypedValue(number_format($formatted, 4, '.', ''), 'float');
         return $resultSet;
     }
 }

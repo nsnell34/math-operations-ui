@@ -2,12 +2,12 @@
 
 namespace Operations\ArrayInput;
 require_once __DIR__ . '/../OperationHandler.php';
-include_once 'VarianceHandler.php';
+include_once 'StandardDeviationHandler.php';
 
 use InvalidArgumentException;
 use TypedValue;
 
-class StandardDeviationHandler implements \Operations\OperationHandler {
+class SkewnessnHandler implements \Operations\OperationHandler {
     public function sanitize(string $input): array {
         $items = explode(',', $input);
         $numbers = [];
@@ -28,16 +28,23 @@ class StandardDeviationHandler implements \Operations\OperationHandler {
             throw new InvalidArgumentException("Invalid input.");
         }
 
-        $deviation = $this->getStandardDeviation($sanitizedInput);
-        $formatted = rtrim(rtrim(number_format($deviation, 4, '.', ''), '0'), '.');
-
-        $resultSet['standardDeviation'] =  new TypedValue($formatted, 'float');
+        $final =  $this->getSkewness($sanitizedInput);
+        $formatted = rtrim(rtrim(number_format($final, 4, '.', ''), '0'), '.');
+        $resultSet['skewness'] =  new TypedValue($formatted, 'float');
 
         return $resultSet;
     }
 
-    public static function getStandardDeviation($input){
-        $variance = VarianceHandler::getVariance($input);
-        return sqrt($variance);
+    public static function getSkewness($input){
+        $mean = array_sum($input) / count($input);
+        $deviation = StandardDeviationHandler::getStandardDeviation($input);
+        $stm = [];
+        foreach ($input as $value){
+            $stm[] = pow(($value - $mean) / $deviation, 3);
+        }
+
+        $stmSum = array_sum($stm);
+        $count = count($input);
+        return ($count / (($count - 1) * ($count - 2))) * $stmSum;
     }
 }

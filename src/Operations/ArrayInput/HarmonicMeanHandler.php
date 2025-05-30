@@ -33,8 +33,9 @@ class HarmonicMeanHandler implements \Operations\OperationHandler {
         }
 
         $harmonicMean = count($sanitizedInput) / $total;
+        $formatted = rtrim(rtrim(number_format($harmonicMean, 4, '.', ''), '0'), '.');
 
-        $resultSet['harmonicMean'] = new TypedValue(number_format($harmonicMean, 2, '.', ''), 'float');
+        $resultSet['harmonicMean'] = new TypedValue($formatted, 'float');
         return $resultSet;
     }
 }

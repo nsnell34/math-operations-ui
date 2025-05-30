@@ -27,8 +27,13 @@ class MeanHandler implements \Operations\OperationHandler {
             throw new InvalidArgumentException("Invalid input.");
         }
 
-        $mean = array_sum($sanitizedInput) / count($sanitizedInput);
-        $resultSet['mean'] = new TypedValue($mean, 'float');
+        $mean = $this->getMean($sanitizedInput);
+        $formatted = rtrim(rtrim(number_format($mean, 4, '.', ''), '0'), '.');
+        $resultSet['mean'] = new TypedValue($formatted, 'float');
         return $resultSet;
+    }
+
+    public static function getMean($input){
+        return array_sum($input) / count($input);
     }
 }

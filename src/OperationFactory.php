@@ -2,9 +2,12 @@
 use Operations\ArrayInput\GeometricMeanHandler;
 use Operations\ArrayInput\HarmonicMeanHandler;
 use Operations\ArrayInput\InterquartileRangeHandler;
+use Operations\ArrayInput\KurtosisnHandler;
 use Operations\ArrayInput\MeanHandler;
 use Operations\ArrayInput\MedianHandler;
 use Operations\ArrayInput\ModeHandler;
+use Operations\ArrayInput\RangeHandler;
+use Operations\ArrayInput\SkewnessnHandler;
 use Operations\ArrayInput\StandardDeviationHandler;
 use Operations\ArrayInput\SummationHandler;
 use Operations\ArrayInput\VarianceHandler;
@@ -27,6 +30,7 @@ class OperationFactory {
             'summation' => new SummationHandler(),
             'median' => new MedianHandler(),
             'mode' => new ModeHandler(),
+            'range' => new RangeHandler(),
             'standarddeviation' => new StandardDeviationHandler(),
             'variance' => new VarianceHandler(),
             'quartiles' => new QuartileHandler(),
@@ -39,6 +43,8 @@ class OperationFactory {
             'geometricmean' => new GeometricMeanHandler(),
             'harmonicmean' => new HarmonicMeanHandler(),
             'interquartilerange' => new InterquartileRangeHandler(),
+            'skewness' => new SkewnessnHandler(),
+            'kurtosis' => new KurtosisnHandler(),
             default => null
         };
     }

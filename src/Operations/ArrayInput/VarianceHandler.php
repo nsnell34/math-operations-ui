@@ -2,6 +2,7 @@
 
 namespace Operations\ArrayInput;
 require_once __DIR__ . '/../OperationHandler.php';
+include_once 'MeanHandler.php';
 
 use InvalidArgumentException;
 use TypedValue;
@@ -27,18 +28,21 @@ class VarianceHandler implements \Operations\OperationHandler {
             throw new InvalidArgumentException("Invalid input.");
         }
 
+        $variance = $this->getVariance($sanitizedInput);
+        $formatted = rtrim(rtrim(number_format($variance, 4, '.', ''), '0'), '.');
 
-        $mean = array_sum($sanitizedInput) / count($sanitizedInput);
+        $resultSet['variance'] = new TypedValue($formatted, 'float');
+
+        return $resultSet;
+    }
+
+    public static function getVariance($input){
+        $mean = MeanHandler::getMean($input);
         $squaredDiffs = [];
-        foreach ($sanitizedInput as $key => $value){
+        foreach ($input as $key => $value){
             $squaredDiffs[] = ($value - $mean) ** 2;
 
         }
-
-        $variance = array_sum($squaredDiffs) / count($squaredDiffs);
-
-        $resultSet['variance'] = new TypedValue($variance, 'float');
-
-        return $resultSet;
+        return array_sum($squaredDiffs) / (count($squaredDiffs) - 1);
     }
 }
