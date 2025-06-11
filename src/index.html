@@ -8,7 +8,7 @@
     <h1>Examples</h1>
     <input class="input" type="text" placeholder="Input..." id="searchInput">
 
-    <div id="result" style="margin-top: 20px; font-family: monospace;"></div>
+    <div id="result" style="margin-top: 20px; margin-bottom: 20px; font-family: monospace;"></div>
     
     <div class="dropdown">
         <button class="dropdown-toggle" onclick="toggleFunctions('arrayFunctions', this)">Array Input <span class="arrow">&gt;</span> </button>
@@ -50,7 +50,6 @@
             <div class="function" onClick="handleClick('GreatestCommonFactor', true)">Greatest Common Factor</div>
             <div class="function" onClick="handleClick('LeastCommonMultiple', true)">Least Common Multiple</div>
             <div class="function" onClick="handleClick('BezoutCoefficients', true)">Bezout Coefficients</div>
-            <div class="function" onClick="handleClick('BitwiseOperations', true)">Bitwise Operations</div>
         </div>
     </div>    
 
@@ -79,20 +78,24 @@
                         isNumeric: isNumeric
                     })
                 });
-        
+
                 const data = await response.json();
-        
+
                 if (!response.ok) {
                     throw new Error(data.error || 'An unknown error occurred');
                 }
-        
-                document.getElementById('result').innerHTML = `<pre>${JSON.stringify(data.result, null, 2)}</pre>`;
+                if (typeof data.result === 'string') {
+                    document.getElementById('result').textContent = data.result;
+                } else {
+                    document.getElementById('result').textContent = JSON.stringify(data.result, null, 2);
+                }
+
             } catch (error) {
                 console.error('Error:', error);
-                document.getElementById('result').innerHTML = `<pre style="color: red;">Error: ${error.message}</pre>`;
+                document.getElementById('result').textContent = `Error: ${error.message}`;
             }
-            
         }
+
 
         function toggleFunctions(containerId, button) {
             const container = document.getElementById(containerId);

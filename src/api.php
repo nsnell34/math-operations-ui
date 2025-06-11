@@ -41,7 +41,6 @@ include_once 'Operations/DoubleIntegerInput/BezoutCoefficientHandler.php';
 use MathParser\StdMathParser;
 
 header('Content-Type: application/json');
-
 try {
     $json = file_get_contents('php://input');
     $data = json_decode($json, true); 
@@ -55,21 +54,27 @@ try {
     $isNumeric = $data['isNumeric'];
 
     if (!$isNumeric) {
-         //create new handling class for this... 
         $varParser = new StdMathParser();
         $ast = $varParser->parse($input);
-        $parser = new Parser($ast);
 
-        $result = $parser->terms; 
+        ob_start();
+        var_dump($ast);
+        $astOutput = ob_get_clean();
+
+        echo json_encode([
+            'success' => true,
+            'result' => $astOutput
+        ]);
     } else {
         $functionRunner = new Functions($operation);
         $result = $functionRunner->run($input);
+
+        echo json_encode([
+            'success' => true,
+            'result' => $result
+        ]);
     }
 
-    echo json_encode([
-        'success' => true,
-        'result' => $result
-    ]);
 } catch (Throwable $e) {
     http_response_code(400);
     echo json_encode([
