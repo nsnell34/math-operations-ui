@@ -24,6 +24,8 @@ use Operations\SingleIntegerInput\FibonacciHandler;
 
 use Operations\DoubleIntegerInput\GreatestCommonFactorHandler;
 use Operations\DoubleIntegerInput\LeastCommonMultipleHandler;
+use Operations\DoubleIntegerInput\BezoutCoefficientHandler;
+
 
 use Operations\OperationHandler;
 use Operations\SingleIntegerInput\TriangularNumbersHandler;
@@ -55,6 +57,7 @@ class OperationFactory {
             'digitalroot' => new DigitalRootHandler(),
             'abundance' => new AbundanceHandler(),
             'euelertotient' => new EulersTotientHandler(),
+            'bezoutcoefficients' => new BezoutCoefficientHandler(),
             default => null
         };
     }

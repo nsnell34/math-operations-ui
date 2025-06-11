@@ -35,6 +35,7 @@ include_once 'Operations/SingleIntegerInput/EulersTotientHandler.php';
 
 include_once 'Operations/DoubleIntegerInput/LeastCommonMultipleHandler.php';
 include_once 'Operations/DoubleIntegerInput/GreatestCommonFactorHandler.php';
+include_once 'Operations/DoubleIntegerInput/BezoutCoefficientHandler.php';
 
 
 use MathParser\StdMathParser;
